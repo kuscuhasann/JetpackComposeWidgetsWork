@@ -43,12 +43,12 @@ fun MainPage() {
     ) {
         Text(text = "Yazdığınız Veri: " + labelField.value)
         
-        TextField(
+        OutlinedTextField(
             value = textFieldData.value ,
             onValueChange = { textFieldData.value = it},
             label = { Text(text = "Buraya bir değer giriniz.")}
         )
-        Button(onClick = { 
+        OutlinedButton(onClick = {
             labelField.value = textFieldData.value
         }) {
             Text(text = "Veriyi Aktar")
