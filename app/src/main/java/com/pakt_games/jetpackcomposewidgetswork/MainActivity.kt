@@ -28,28 +28,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    RadioButtonhWorkPage()
+                    ProgresIndicator()
                 }
             }
         }
     }
-}
-
-@Composable
-fun PageFab() {
-    Scaffold(content = {
-
-    }, floatingActionButton = {
-        FloatingActionButton(
-            onClick = {
-                Log.e("fab","Tıklandı")
-            },
-            backgroundColor = Color.Blue,
-            content = {
-                Icon(painter = painterResource(id = R.drawable.ic_baseline_add_24), contentDescription = "fab")
-            }
-        )
-    })
 }
 
 @Composable
