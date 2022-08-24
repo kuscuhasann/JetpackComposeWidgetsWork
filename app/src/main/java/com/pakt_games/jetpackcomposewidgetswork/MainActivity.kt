@@ -1,6 +1,7 @@
 package com.pakt_games.jetpackcomposewidgetswork
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +13,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.pakt_games.jetpackcomposewidgetswork.ui.theme.JetpackComposeWidgetsWorkTheme
 
@@ -25,11 +28,28 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainPage()
+                    PageFab()
                 }
             }
         }
     }
+}
+
+@Composable
+fun PageFab() {
+    Scaffold(content = {
+
+    }, floatingActionButton = {
+        FloatingActionButton(
+            onClick = {
+                Log.e("fab","Tıklandı")
+            },
+            backgroundColor = Color.Blue,
+            content = {
+                Icon(painter = painterResource(id = R.drawable.ic_baseline_add_24), contentDescription = "fab")
+            }
+        )
+    })
 }
 
 @Composable
