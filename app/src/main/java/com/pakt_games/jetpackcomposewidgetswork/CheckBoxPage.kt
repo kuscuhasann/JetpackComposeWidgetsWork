@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun CheckBoxWorkPage() {
-    var checkBoxStatus = remember {
+    val checkBoxStatus = remember {
         mutableStateOf(false)
     }
     Column(

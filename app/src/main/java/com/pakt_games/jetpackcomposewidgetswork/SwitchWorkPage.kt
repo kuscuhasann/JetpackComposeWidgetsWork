@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun SwitchWorkPage() {
-    var switchStatus = remember {
+    val switchStatus = remember {
         mutableStateOf(false)
     }
     Column(
