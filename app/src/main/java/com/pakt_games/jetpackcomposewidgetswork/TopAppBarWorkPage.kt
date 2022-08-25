@@ -13,6 +13,9 @@ fun TopAppBarWorkPage() {
     val menuOpeningControl = remember {
         mutableStateOf(false)
     }
+    val isSearchEnabled = remember {
+        mutableStateOf(false)
+    }
     val menuItemList = listOf("Şeker", "Tuz","Leblebi")
     Scaffold(
         topBar = {
@@ -36,6 +39,22 @@ fun TopAppBarWorkPage() {
                             }
                         }
                     }
+
+                    if (isSearchEnabled.value) {
+                        IconButton(onClick = {
+                            isSearchEnabled.value = true
+                        }) {
+                            Icon(painter = painterResource(id = R.drawable.ic_baseline_cancel_24), contentDescription = "")
+                        }
+                    } else {
+                        IconButton(onClick = {
+                            isSearchEnabled.value = true
+                        }) {
+                            Icon(painter = painterResource(id = R.drawable.ic_baseline_search_24), contentDescription = "")
+                        }
+                    }
+
+
                 }
             )
         },
