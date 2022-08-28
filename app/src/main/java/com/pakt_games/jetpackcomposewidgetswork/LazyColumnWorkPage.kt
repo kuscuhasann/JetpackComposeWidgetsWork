@@ -14,6 +14,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -21,41 +23,29 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun LayzColumnWorkPage() {
-    LazyRow {
-        item {
-            Card(
-                modifier = Modifier
-                    .padding(all = 10.dp),
-                elevation = 10.dp,
-                backgroundColor = Color.Blue,
-                shape = RoundedCornerShape(corner = CornerSize(16.dp)),
-                border = BorderStroke(2.dp, Color.Magenta)
-            ) {
-                Row(
-                    horizontalArrangement = Arrangement.Start,
-                    modifier = Modifier.padding(all = 10.dp)
+    val countryList = remember { mutableStateListOf("İsviçre","Türkiye", "Uganda", "Norveç")}
+    LazyColumn {
+        countryList.forEachIndexed { index, countryName ->
+            item {
+                Card(
+                    modifier = Modifier
+                        .padding(all = 10.dp)
+                        .fillMaxWidth(),
+                    elevation = 10.dp,
+                    backgroundColor = Color.White,
+                    shape = RoundedCornerShape(corner = CornerSize(16.dp)),
+                    border = BorderStroke(2.dp, Color.DarkGray)
                 ) {
-                    Image(painter = painterResource(id = R.drawable.ic_baseline_search_24), contentDescription = "")
-                    Text(text = "Arama Resmi")
-                }
-            }
-        }
-
-        item {
-            Card(
-                modifier = Modifier
-                    .padding(all = 10.dp),
-                elevation = 10.dp,
-                backgroundColor = Color.Blue,
-                shape = RoundedCornerShape(corner = CornerSize(16.dp)),
-                border = BorderStroke(2.dp, Color.Magenta)
-            ) {
-                Row(
-                    horizontalArrangement = Arrangement.Start,
-                    modifier = Modifier.padding(all = 10.dp),
-                ) {
-                    Image(painter = painterResource(id = R.drawable.ic_baseline_menu_24), contentDescription = "")
-                    Text(text = "Menu Resmi")
+                    Row(modifier = Modifier.clickable {
+                        println(countryName +" tıklanıldı")
+                    }) {
+                        Row(
+                            horizontalArrangement = Arrangement.Start,
+                            modifier = Modifier.padding(all = 10.dp)
+                        ) {
+                            Text(text = countryName)
+                        }
+                    }
                 }
             }
         }
