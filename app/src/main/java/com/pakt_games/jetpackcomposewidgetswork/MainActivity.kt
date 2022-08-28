@@ -1,4 +1,4 @@
-package com.pakt_games.jetpackcomposewidgetswork.main
+package com.pakt_games.jetpackcomposewidgetswork
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.pakt_games.jetpackcomposewidgetswork.LayzColumnWorkPage
 import com.pakt_games.jetpackcomposewidgetswork.ui.theme.JetpackComposeWidgetsWorkTheme
 
 class MainActivity : ComponentActivity() {
