@@ -1,7 +1,6 @@
-package com.pakt_games.jetpackcomposewidgetswork
+package com.pakt_games.jetpackcomposewidgetswork.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -13,9 +12,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.pakt_games.jetpackcomposewidgetswork.LayzColumnWorkPage
 import com.pakt_games.jetpackcomposewidgetswork.ui.theme.JetpackComposeWidgetsWorkTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    CardWorkPage()
+                    LayzColumnWorkPage()
                 }
             }
         }
