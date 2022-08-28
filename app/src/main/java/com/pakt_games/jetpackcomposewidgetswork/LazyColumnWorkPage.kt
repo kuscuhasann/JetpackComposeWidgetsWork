@@ -20,9 +20,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun LayzColumnWorkPage() {
+fun LayzColumnWorkPage(navController: NavController) {
     val countryList = remember { mutableStateListOf("İsviçre","Türkiye", "Uganda", "Norveç")}
     LazyColumn {
         countryList.forEachIndexed { index, countryName ->
@@ -37,7 +38,7 @@ fun LayzColumnWorkPage() {
                     border = BorderStroke(2.dp, Color.DarkGray)
                 ) {
                     Row(modifier = Modifier.clickable {
-                        println(countryName +" tıklanıldı")
+                        navController.navigate("layzColumnDetailPage/$countryName")
                     }) {
                         Row(
                             horizontalArrangement = Arrangement.Start,

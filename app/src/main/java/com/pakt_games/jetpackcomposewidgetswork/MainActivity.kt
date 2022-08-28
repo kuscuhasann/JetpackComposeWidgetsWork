@@ -13,6 +13,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.pakt_games.jetpackcomposewidgetswork.ui.theme.JetpackComposeWidgetsWorkTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,9 +30,26 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LayzColumnWorkPage()
+                    LayzColumnPageTransfer()
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun LayzColumnPageTransfer() {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "layzColumnMainPage") {
+        composable("layzColumnMainPage") {
+            LayzColumnWorkPage(navController = navController)
+        }
+
+        composable("layzColumnDetailPage/{countryName}", arguments = listOf(
+            navArgument("countryName") {type = NavType.StringType}
+        )) {
+            val countryName = it.arguments?.getString("countryName")
+            LayzColumnDetailPage(countryName = countryName.toString())
         }
     }
 }
